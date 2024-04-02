@@ -17,6 +17,7 @@ function App() {
       <div className="m-auto max-w-screen-sm px-5">
         <div className="bg-white">
           <Start />
+          <Footer />
         </div>
       </div>
     );

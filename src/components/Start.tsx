@@ -6,6 +6,7 @@ import { Input } from './ui/input';
 const Start = () => {
   const [state, setState] = useAtom(deliveryAtom);
   const hasStops = useAtomValue(hasStopsAtom);
+
   return (
     <>
       <div className="p-4">

@@ -37,7 +37,7 @@ const CompleteStopButton = () => {
     </Button>
   );
 
-  return secondsSinceLastStop < 10 ? (
+  return requireDialog ? (
     <ConfirmDialog
       titleText="Less than 10 seconds since last stop"
       confirmText="Complete stop anyway"
