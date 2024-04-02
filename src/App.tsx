@@ -3,7 +3,7 @@ import { CompleteStopButton } from './components/CompleteStopButton';
 import { Divider } from './components/Divider';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
-import { RemainingStopsDialog } from './components/RemainingStopsDialog';
+import { RemainingStopsDialog } from './components/dialog/RemainingStopsDialog';
 import { Start } from './components/Start';
 import { StopsTable } from './components/StopsTable';
 import { State, deliveryAtom } from './delivery-helper';

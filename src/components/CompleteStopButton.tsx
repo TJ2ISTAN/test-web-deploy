@@ -5,7 +5,7 @@ import {
   secondsSinceLastStopAtom,
 } from '@/delivery-helper';
 import { useAtomValue, useSetAtom } from 'jotai/react';
-import { ConfirmDialog } from './ConfirmDialog';
+import { ConfirmDialog } from './dialog/ConfirmDialog';
 import { Button } from './ui/button';
 
 const CompleteStopButton = () => {

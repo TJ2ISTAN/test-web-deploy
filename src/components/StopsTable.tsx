@@ -7,7 +7,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Stop } from '@/delivery-helper';
-import { ConfirmDialog } from './ConfirmDialog';
+import { ConfirmDialog } from './dialog/ConfirmDialog';
 import { Button } from './ui/button';
 
 const StopsTable = ({

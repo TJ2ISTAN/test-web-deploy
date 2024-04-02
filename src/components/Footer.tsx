@@ -1,6 +1,6 @@
 import { deliveryAtom } from '@/delivery-helper';
 import { useAtom } from 'jotai/react';
-import { ConfirmDialog } from './ConfirmDialog';
+import { ConfirmDialog } from './dialog/ConfirmDialog';
 import { LoadState } from './file/LoadState';
 import { SaveState } from './file/SaveState';
 import { Divider } from './Divider';
