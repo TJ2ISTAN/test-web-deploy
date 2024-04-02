@@ -1,25 +1,16 @@
-import { useAtom, useAtomValue } from 'jotai/react';
+import { useAtom } from 'jotai/react';
+import { CompleteStopButton } from './components/CompleteStopButton';
 import { Divider } from './components/Divider';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { RemainingStopsDialog } from './components/RemainingStopsDialog';
 import { Start } from './components/Start';
 import { StopsTable } from './components/StopsTable';
-import { Button } from './components/ui/button';
-import {
-  State,
-  currentStopAtom,
-  deliveryAtom,
-  hasStopsAtom,
-} from './delivery-helper';
-import { CompleteStopButton } from './components/CompleteStopButton';
+import { State, deliveryAtom } from './delivery-helper';
 
 // The main UI Screen
 function App() {
   const [state, setState] = useAtom<State>(deliveryAtom);
-
-  const currentStop = useAtomValue(currentStopAtom);
-  const hasStops = useAtomValue(hasStopsAtom);
 
   if (state.startTime === undefined) {
     return (
@@ -35,15 +26,11 @@ function App() {
     <div className="m-auto max-w-screen-sm px-5">
       <div className="bg-white">
         <Header />
-
         <Divider />
-
         <div className="p-4">
           <CompleteStopButton />
         </div>
-
         <Divider />
-
         <div className="flex items-center justify-between p-5 text-xl font-bold">
           <span>
             {state.remainingStops}{' '}
@@ -59,9 +46,7 @@ function App() {
             }}
           />
         </div>
-
         <Divider className="mb-5" />
-
         <div className="p-4">
           <StopsTable
             stops={state.completedStops}
@@ -75,9 +60,7 @@ function App() {
             }}
           />
         </div>
-
         <Divider />
-
         <Footer />
       </div>
     </div>
