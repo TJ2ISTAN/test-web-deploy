@@ -7,7 +7,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Stop } from '@/delivery-helper';
-import { ConfirmDialog } from './dialog/ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 import { Button } from './ui/button';
 
 const StopsTable = ({
@@ -42,13 +42,12 @@ const StopsTable = ({
                   <ConfirmDialog
                     titleText="Delete stop"
                     confirmText="Delete"
-                    trigger={
-                      <Button variant="outline" size="sm">
-                        Delete
-                      </Button>
-                    }
                     onConfirm={() => onDelete(index)}
-                  />
+                  >
+                    <Button variant="outline" size="sm">
+                      Delete
+                    </Button>
+                  </ConfirmDialog>
                 )}
               </div>
             </TableCell>
@@ -59,4 +58,4 @@ const StopsTable = ({
   );
 };
 
-export default StopsTable;
+export { StopsTable };

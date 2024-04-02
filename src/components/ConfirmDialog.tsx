@@ -14,19 +14,19 @@ import { DialogClose } from '@radix-ui/react-dialog';
 </Button>;
 
 const ConfirmDialog = ({
-  trigger,
+  children,
   titleText,
   confirmText,
   onConfirm,
 }: {
-  trigger: React.ReactNode;
+  children: React.ReactNode;
   titleText: string;
   confirmText: string;
   onConfirm: () => void;
 }) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{titleText}</DialogTitle>
