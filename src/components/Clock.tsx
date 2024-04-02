@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
+import { currentTimeAtom } from '@/delivery-helper';
+import { useAtom } from 'jotai/react';
+import { useEffect } from 'react';
 
 const Clock = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [currentTime, setCurrentTime] = useAtom(currentTimeAtom);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
+      setCurrentTime(new Date());
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return time;
+  return currentTime.toLocaleTimeString();
 };
 
 export { Clock };

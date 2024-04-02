@@ -13,6 +13,8 @@ export type State = {
   completedStops: Stop[];
 };
 
+export const currentTimeAtom = atom(new Date());
+
 export const deliveryAtom = atomWithStorage<State>('deliveryState', {
   startTime: undefined,
   remainingStops: 0,
@@ -38,6 +40,25 @@ export const percentCompletionAtom = atom((get) => {
       (state.completedStops.length + state.remainingStops)) *
     100
   );
+});
+
+export const secondsSinceLastStopAtom = atom((get) => {
+  const state = get(deliveryAtom);
+  const lastStop = state.completedStops[0];
+  if (!lastStop) {
+    return 0;
+  }
+
+  return (get(currentTimeAtom).valueOf() - lastStop.time) / 1000;
+});
+
+export const minutesSinceLastStopAtom = atom((get) => {
+  return get(secondsSinceLastStopAtom) / 60;
+});
+
+export const isWithinTimeLimitAtom = atom((get) => {
+  const minutesSinceLastStop = get(minutesSinceLastStopAtom);
+  return minutesSinceLastStop < 15;
 });
 
 // calculations like stops/hour estimates, etc, should all go in here.
